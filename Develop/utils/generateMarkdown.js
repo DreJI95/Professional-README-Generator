@@ -4,6 +4,7 @@ function renderLicenseBadge(license) {
   if (!license)
     { return '';}
 
+
     return ` badge `;
 }
 
@@ -12,6 +13,7 @@ function renderLicenseBadge(license) {
 function renderLicenseLink(license) {
   if (!license)
     { return '';}
+
 
     return `${license}`;
 }
@@ -22,6 +24,7 @@ function renderLicenseSection(license) {
     if (!license)
     { return '';}
 
+
     return `# License`;
 }
 
@@ -31,27 +34,29 @@ function emailEntered(email) {
   if (!email)
   { return '';}
 
-  return `Email address: ${email}`;
+  return `For further questions please contact me at:
+  
+  Email address: ${email}`;
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
 
   const {title,description,installation,usage,collaborators,license,tests,contact,email} = data;
-  
+
   console.log(`${title,description,installation,usage,collaborators,license,tests,contact,email}`);
 
   return `
   # ${title}
 
   # Table of Contents
-  * [Description](# Description)
-  * [Installation](# Installation)
+  * [Description](#description)
+  * [Installation](#installation)
   * [Usage](# Usage)
-  * [Contributing](# Contributing)
-  * [License](# License)
-  * [Tests](# Tests)
-  * [Questions](# Questions?)
+  * [Contributing](#contributing)
+  * [License](#license)
+  * [Tests](#tests)
+  * [Questions](#questions?)
 
   # Description
      ${description}
@@ -73,9 +78,10 @@ function generateMarkdown(data) {
      ${tests}
 
   # Questions?
-    https://github.com/${contact}
+
+    GitHub profile: https://github.com/${contact}
      
-    For further questions please contact me at: ${emailEntered(email)}
+    ${emailEntered(email)}
 `;
 }
 

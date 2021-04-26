@@ -1,5 +1,4 @@
 // TODO: Include packages needed for this application
-const { generateKeyPair } = require('crypto');
 const fs = require('fs');
 const inquirer = require('inquirer');
 const genMarkdown = require('./utils/generateMarkdown'); 
@@ -45,7 +44,14 @@ const questions = [
     {
         type: 'input',
         name: 'usage',
-        message: 'Provides instructions on how to utilize this application. (Required)',
+        message: 
+        `Provides instructions on how to utilize this application.
+        To add a screenshot, create an 'assets/images' folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+        ----md
+        ![alt text](assets/images/screenshot.png)
+        ----
+        (Required)
+        `,
         validate: installationInput => {
             if (installationInput){
                 return true;}
@@ -55,7 +61,7 @@ const questions = [
             }
     },
     {
-        type: 'input',
+        type: 'inout',
         name: 'collaborators',
         message: 'List collaborators, tutorials or thrid-party assests utilized in this project',
     },
@@ -85,7 +91,7 @@ const questions = [
     {
         type: 'input',
         name: 'email',
-        message: 'Do you have an email address?',
+        message: 'Do you have an email address for contact?'
     },
 ];
 
@@ -112,7 +118,7 @@ function init() {
 
         return genMarkdown(readMeResponses); }
         
-    ).then(markDownFile => writeToFile('../Develop/README.md', markDownFile));
+    ).then(markDownFile => { writeToFile('../README.md', markDownFile) });
 }
 
 // Function call to initialize app
