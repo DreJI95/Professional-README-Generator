@@ -1,10 +1,12 @@
 
+  ![GitHub](https://img.shields.io/github/license/DreJI95/Professional-README-Generator?color=blue&logo=MIT)
+
   # Professional READMe Generator
 
   # Table of Contents
   * [Description](#description)
   * [Installation](#installation)
-  * [Usage](# Usage)
+  * [Usage](#usage)
   * [Contributing](#contributing)
   * [License](#license)
   * [Tests](#tests)
@@ -20,8 +22,7 @@
      Type node index.js from the Develop folder of this cloned project.
 
   # License
-
-   badge  MIT
+     MIT: https://choosealicense.com/licenses/mit/
 
   # Contributing
      https://www.npmjs.com/package/inquirer ; https://shields.io/category/license ; https://choosealicense.com/ ;
@@ -33,4 +34,6 @@
 
     GitHub profile: https://github.com/DreJI95
      
-    
+    For further questions please contact me at:
+
+  Email address: andre.ji.moseley@gmail.com
