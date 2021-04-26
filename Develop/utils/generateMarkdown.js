@@ -36,8 +36,13 @@ function emailEntered(email) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
+
+  const {title,description,installation,usage,collaborators,license,tests,contact,email} = data;
+  
+  console.log(`${title,description,installation,usage,collaborators,license,tests,contact,email}`);
+
   return `
-  # ${data.title}
+  # ${title}
 
   # Table of Contents
   * [Description](# Description)
@@ -49,30 +54,28 @@ function generateMarkdown(data) {
   * [Questions](# Questions?)
 
   # Description
-     ${data.description}
+     ${description}
 
   # Installation 
-     ${data.installation}
+     ${installation}
 
   # Usage 
-     ${data.usage}
+     ${usage}
 
-  ${renderLicenseSection(data.license)}
+  ${renderLicenseSection(license)}
 
-  ${renderLicenseBadge(data.license)} ${renderLicenseLink(data.license)}
+  ${renderLicenseBadge(license)} ${renderLicenseLink(license)}
 
   # Contributing
-     ${data.contributing}
+     ${collaborators}
 
   # Tests
-     ${data.tests}
+     ${tests}
 
   # Questions?
-     ${data.contact}
-     ${emailEntered(data.email)}
-
-  # References
-     ${data.references}
+    https://github.com/${contact}
+     
+    For further questions please contact me at: ${emailEntered(email)}
 `;
 }
 

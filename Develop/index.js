@@ -1,4 +1,5 @@
 // TODO: Include packages needed for this application
+const { generateKeyPair } = require('crypto');
 const fs = require('fs');
 const inquirer = require('inquirer');
 const genMarkdown = require('./utils/generateMarkdown'); 
@@ -67,8 +68,7 @@ const questions = [
     {
         type: 'input',
         name: 'tests',
-        message: 'Select the licenses for your project.',
-        choices: ['Apache v2', 'GNU GPLv3', 'MIT', 'ISC', 'GNU GPLv2']
+        message: 'Provide test examples of your application.'
     },
     {
         type: 'input',
@@ -92,7 +92,7 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     return new Promise((resolve,reject) => {
-        fs.writeFile('../Develop/README.md', data, err => {
+        fs.writeFile(fileName, data, err => {
             if (err)
             { reject(err);
               return; }
@@ -107,11 +107,13 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-    return inquirer.prompt(questions)
+
+    inquirer.prompt(questions).then(readMeResponses => { 
+
+        return genMarkdown(readMeResponses); }
+        
+    ).then(markDownFile => writeToFile('../Develop/README.md', markDownFile));
 }
 
 // Function call to initialize app
-init()
-.then(generateMarkdown => {
-    return writeToFile()
-});
+init();
