@@ -1,5 +1,5 @@
 
-  ![GitHub](https://img.shields.io/github/license/DreJI95/Professional-README-Generator?color=blue&label=license)
+  ![GitHub](https://img.shields.io/badge/license-MIT-blue)
 
   # Professional READMe Generator
 
