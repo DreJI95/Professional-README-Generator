@@ -108,7 +108,7 @@ function writeToFile(fileName, data) {
                 message: 'File created!'
             })
         })
-    })
+    }).then( response => {console.log(response.message); })
 }
 
 // TODO: Create a function to initialize app
@@ -118,7 +118,9 @@ function init() {
 
         return genMarkdown(readMeResponses); }
         
-    ).then(markDownFile => { writeToFile('../README.md', markDownFile) });
+    ).then(markDownFile => { writeToFile('../README.md', markDownFile) }).catch(err => {
+        console.log(err);
+      });
 }
 
 // Function call to initialize app

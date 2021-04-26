@@ -4,8 +4,30 @@ function renderLicenseBadge(license) {
   if (!license)
     { return '';}
 
+    if (license.includes('Apache v2'))
+    {
+      return '![GitHub](https://img.shields.io/github/license/DreJI95/Professional-README-Generator?color=blue&logo=Apache-v2)'
+    }
 
-    return ` badge `;
+    if (license.includes('GNU GPLv3'))
+    {
+      return '![GitHub](https://img.shields.io/github/license/DreJI95/Professional-README-Generator?color=blue&logo=Gnu-Gplv-v3)'
+    }
+
+    if (license.includes('GNU GPLv2'))
+    {
+      return '![GitHub](https://img.shields.io/github/license/DreJI95/Professional-README-Generator?color=blue&logo=Gnu-Gplv-v2)'
+    }
+
+    if (license.includes('MIT'))
+    {
+      return '![GitHub](https://img.shields.io/github/license/DreJI95/Professional-README-Generator?color=blue&logo=MIT)'
+    }
+
+    if (license.includes('ISC'))
+    {
+      return '![GitHub](https://img.shields.io/github/license/DreJI95/Professional-README-Generator?color=blue&logo=ISC)'
+    }
 }
 
 // TODO: Create a function that returns the license link
@@ -14,28 +36,48 @@ function renderLicenseLink(license) {
   if (!license)
     { return '';}
 
-
-    return `${license}`;
+  if (license.includes('Apache v2'))
+  {
+    return 'Apache v2: https://choosealicense.com/licenses/apache-2.0/'
+  }
+  if (license.includes('GNU GPLv3'))
+  {
+    return 'GNU GPLv3: https://choosealicense.com/licenses/gpl-3.0/'
+  }
+  if (license.includes('GNU GPLv2'))
+  {
+    return 'GNU GPLv2: https://choosealicense.com/licenses/gpl-2.0/'
+  }
+  if (license.includes('MIT'))
+  {
+    return 'MIT: https://choosealicense.com/licenses/mit/'
+  }
+  if (license.includes('ISC'))
+  {
+    return 'ISC: https://choosealicense.com/licenses/isc/'
+  }
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-    if (!license)
-    { return '';}
 
+  if (!license[0])
+  { return ''}
 
-    return `# License`;
+  else {
+  return '# License';
+  }
 }
 
 // TODO: Create a function that returns the email address to the README
 // If there is no email, return an empty string
 function emailEntered(email) {
   if (!email)
-  { return '';}
+  { return ''}
 
   return `For further questions please contact me at:
-  
+
   Email address: ${email}`;
 }
 
@@ -44,15 +86,15 @@ function generateMarkdown(data) {
 
   const {title,description,installation,usage,collaborators,license,tests,contact,email} = data;
 
-  console.log(`${title,description,installation,usage,collaborators,license,tests,contact,email}`);
-
   return `
+  ${license.map(results => renderLicenseBadge(results))}
+
   # ${title}
 
   # Table of Contents
   * [Description](#description)
   * [Installation](#installation)
-  * [Usage](# Usage)
+  * [Usage](#usage)
   * [Contributing](#contributing)
   * [License](#license)
   * [Tests](#tests)
@@ -68,8 +110,7 @@ function generateMarkdown(data) {
      ${usage}
 
   ${renderLicenseSection(license)}
-
-  ${renderLicenseBadge(license)} ${renderLicenseLink(license)}
+     ${license.map(results => renderLicenseLink(results))}
 
   # Contributing
      ${collaborators}
