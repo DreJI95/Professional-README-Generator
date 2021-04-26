@@ -6,27 +6,27 @@ function renderLicenseBadge(license) {
 
     if (license.includes('Apache v2'))
     {
-      return '![GitHub](https://img.shields.io/github/license/DreJI95/Professional-README-Generator?color=blue&logo=Apache-v2)'
+      return '![GitHub](https://img.shields.io/badge/license-Apache_V2-blue)'
     }
 
     if (license.includes('GNU GPLv3'))
     {
-      return '![GitHub](https://img.shields.io/github/license/DreJI95/Professional-README-Generator?color=blue&logo=Gnu-Gplv-v3)'
+      return '![GitHub](https://img.shields.io/badge/license-GNU_GPL_v3-blueGnu-)'
     }
 
     if (license.includes('GNU GPLv2'))
     {
-      return '![GitHub](https://img.shields.io/github/license/DreJI95/Professional-README-Generator?color=blue&logo=Gnu-Gplv-v2)'
+      return '![GitHub](https://img.shields.io/badge/license-GNU_GPL_v2-blueGnu-)'
     }
 
     if (license.includes('MIT'))
     {
-      return '![GitHub](https://img.shields.io/github/license/DreJI95/Professional-README-Generator?color=blue&logo=MIT)'
+      return '![GitHub](https://img.shields.io/badge/license-MIT-blue)'
     }
 
     if (license.includes('ISC'))
     {
-      return '![GitHub](https://img.shields.io/github/license/DreJI95/Professional-README-Generator?color=blue&logo=ISC)'
+      return '![GitHub](https://img.shields.io/badge/license-ISC-blue)'
     }
 }
 
